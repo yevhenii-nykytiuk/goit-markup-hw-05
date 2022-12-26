@@ -60,7 +60,7 @@
       <section class="hero">
         <div class="container hero-container">
           <h1 class="title">Effective Solutions for Your Business</h1>
-          <button type="button" class="modal-btn">Order Service</button>
+          <button type="button" class="modal-btn" data-modal-open>Order Service</button>
         </div>
       </section>
 
@@ -183,10 +183,6 @@
                     width="272"
                     height="260"
                   />
-                  <p class="overflow-card-text">
-                    14 Stylish and User-Friendly App Design Concepts · Task Manager App · Calorie
-                    Tracker App · Exotic Fruit Ecommerce App · Cloud Storage App
-                  </p>
                 </div>
 
                 <div class="card-content">
@@ -238,10 +234,6 @@
                     width="272"
                     height="260"
                   />
-                  <p class="overflow-card-text">
-                    14 Stylish and User-Friendly App Design Concepts · Task Manager App · Calorie
-                    Tracker App · Exotic Fruit Ecommerce App · Cloud Storage App
-                  </p>
                 </div>
 
                 <div class="card-content">
@@ -293,10 +285,6 @@
                     width="272"
                     height="260"
                   />
-                  <p class="overflow-card-text">
-                    14 Stylish and User-Friendly App Design Concepts · Task Manager App · Calorie
-                    Tracker App · Exotic Fruit Ecommerce App · Cloud Storage App
-                  </p>
                 </div>
 
                 <div class="card-content">
@@ -348,10 +336,6 @@
                     width="272"
                     height="260"
                   />
-                  <p class="overflow-card-text">
-                    14 Stylish and User-Friendly App Design Concepts · Task Manager App · Calorie
-                    Tracker App · Exotic Fruit Ecommerce App · Cloud Storage App
-                  </p>
                 </div>
 
                 <div class="card-content">
@@ -490,9 +474,11 @@
       </div>
     </footer>
 
-    <div class="modal-wrapper">
+    <!-- ==================BACKDROP-MODAL===================  -->
+
+    <div class="backdrop-modal is-hidden" data-modal>
       <div class="modal">
-        <button class="modal-close-btn" type="button">
+        <button class="modal-close-btn" type="button" data-modal-close>
           <svg class="icon-close-btn" width="24" height="24">
             <use href="./images/icon-social-footer/sprite-footer.svg#icon-btn-close"></use>
           </svg>
@@ -500,6 +486,6 @@
       </div>
     </div>
 
-    
+    <script src="./js/modal.js"></script>
   </body>
 </html>

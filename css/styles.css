@@ -3,6 +3,8 @@
   --font-roboto: 'Roboto', sans-serif;
   --card-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+  --modal-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   /* ---COLORS--- */
   --color-primary-brand: #4d5ae5;
   --color-pressed-state: #404bbf;
@@ -13,6 +15,8 @@
   --color-accent: #e7e9fc;
   --color-light: #f4f4fd;
   --color-write: #fff;
+  /* ---TRANSITION--- */
+  --transition-time-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -112,6 +116,8 @@ img {
   font-weight: 700;
   font-size: 16px;
   color: var(--color-black-dark-bold);
+
+  transition: color var(--transition-time-function);
 }
 
 .menu-link__studio {
@@ -126,7 +132,7 @@ img {
   display: block;
   width: 48px;
   height: 4px;
-  background-color: #404BBF;
+  background-color: var(--color-pressed-state);
   border-radius: 2px;
   content: '';
 }
@@ -143,7 +149,7 @@ img {
   display: block;
   width: 66px;
   height: 4px;
-  background-color: #404BBF;
+  background-color: var(--color-pressed-state);
   border-radius: 2px;
   content: '';
 }
@@ -152,19 +158,19 @@ img {
   font-size: 16px;
   font-weight: 400;
   color: var(--color-black-light);
+  transition: color var(--transition-time-function);
 }
 
 .phone-link {
   font-size: 16px;
   font-weight: 400;
   color: var(--color-black-light);
+  transition: color var(--transition-time-function);
 }
 
 .menu-link:hover,
 .menu-link:focus {
   color: var(--color-primary-brand);
-  width: 67px;
-  height: 4px;
 }
 
 .mail-link:hover,
@@ -205,6 +211,12 @@ img {
   text-align: center;
 }
 
+.backdrop-modal.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .modal-btn {
   font-family: var(--font-roboto);
   font-weight: 700;
@@ -217,6 +229,9 @@ img {
   letter-spacing: 0.04em;
   border-radius: 4px;
   padding: 16px 32px 16px 32px;
+
+  transition: background-color var(--transition-time-function),
+    box-shadow var(--transition-time-function);
 }
 
 .modal-btn:hover,
@@ -364,6 +379,8 @@ img {
   border-radius: 3px;
   overflow: hidden;
   cursor: pointer;
+
+  transition: box-shadow var(--transition-time-function);
 }
 
 .card:hover {
@@ -374,8 +391,6 @@ img {
   text-align: center;
 }
 
-
-
 .gallery-person-name {
   margin-bottom: 8px;
 }
@@ -385,7 +400,6 @@ img {
   font-size: 36px;
   line-height: 1.1;
   color: var(--color-black-dark-bold);
-  
 }
 
 .gallery-person-name {
@@ -420,6 +434,9 @@ img {
   height: 40px;
   background-color: var(--color-primary-brand);
   border-radius: 50%;
+
+  transition: background-color var(--transition-time-function),
+    box-shadow var(--transition-time-function);
 }
 
 .social-list-link:hover {
@@ -459,11 +476,13 @@ img {
   border: 1px solid var(--color-subtle-text);
   border-radius: 4px;
   cursor: pointer;
+  transition: border var(--transition-time-function);
 }
 
 .company-logo-icon {
   fill: var(--color-subtle-text);
   cursor: pointer;
+  transition: fill var(--transition-time-function);
 }
 
 .company-logo-icon:hover,
@@ -530,6 +549,7 @@ img {
   height: 40px;
   border-radius: 50%;
   background-color: var(--color-black-light);
+  transition: background-color var(--transition-time-function);
 }
 
 .social-link-footer:hover,
@@ -569,6 +589,8 @@ img {
   padding: 12px 24px 12px 24px;
   border-radius: 4px;
   border: none;
+  transition: color var(--transition-time-function),
+    background-color var(--transition-time-function);
 }
 
 .menu-btn:hover,
@@ -596,6 +618,7 @@ img {
 
 .card-portfolio {
   cursor: pointer;
+  transition: box-shadow var(--transition-time-function);
 }
 
 .card-img {
@@ -609,22 +632,21 @@ img {
   left: 0;
   font-weight: 400;
   font-size: 16px;
-  color: #ffffff;
+  color: var(--color-write);
   width: 100%;
   height: 100%;
+  overflow-y: scroll;
   padding: 40px 32px 164px 32px;
-  background-color: rgba(77, 90, 229, 0.6);
+  background-color: var(--color-primary-brand);
 
-
-
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-time-function);
   transform: translate(0, 100%);
 }
 
-.card-img:hover .overflow-card-text {
+.card-img:hover .overflow-card-text,
+.card-img:focus .overflow-card-text {
   transform: translate(0, 0);
 }
-
 
 .card-portfolio:hover {
   box-shadow: var(--card-shadow);
@@ -632,10 +654,6 @@ img {
 
 .card-portfolio-content {
   padding-left: 16px;
-}
-
-.portfolio-images {
-  
 }
 
 .portfolio-text {
@@ -663,8 +681,9 @@ img {
 
 /* ==================</FOOTER>=================== */
 
+/* ==================<BACKDROP-MODAL>=================== */
 
-.modal-wrapper {
+.backdrop-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -679,32 +698,28 @@ img {
   top: 50%;
   left: 50%;
   width: 408px;
-  height: 540px;
+  height: 576px;
   transform: translate(-50%, -50%);
-  background: #FCFCFC;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  background: #fcfcfc;
+  box-shadow: var(--modal-shadow);
   border-radius: 4px;
 }
 
 .modal-close-btn {
-  /* position: absolute;
-  top: 0;
-  left: 94%; */
   position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-
+  top: 10px;
+  left: 372px;
   border-radius: 50%;
-  background-color: #E7E9FC;
-  border: 1px solid #E7E9FC;
-  color: #E7E9FC;
+  background-color: var(--color-accent);
+  border: 1px solid rgb(255, 253, 253);
   padding: 0;
   width: 24px;
   height: 24px;
   cursor: pointer;
+  fill: var(--color-accent);
+  /* transition: fill var(--transition-time-function); */
 }
 
-.icon-close-btn {
-}
+/* .modal-close-btn:hover {
+  fill: var(--color-pressed-state);
+} */
