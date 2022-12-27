@@ -106,11 +106,17 @@ img {
   color: var(--color-black-dark-bold);
   text-transform: uppercase;
   margin-right: 77px;
+  transition: color var(--transition-time-function);
 }
 
 .span-logo {
   color: var(--color-primary-brand);
 }
+
+.logo:hover {
+  color: var(--color-primary-brand);
+}
+
 
 .menu-link {
   font-weight: 700;
@@ -519,6 +525,11 @@ img {
   text-transform: uppercase;
   margin-bottom: 16px;
   margin-right: 269px;
+  transition: color var(--transition-time-function);
+}
+
+.logo-footer:hover {
+  color: var(--color-primary-brand);
 }
 
 .about-footer-content {
@@ -635,11 +646,10 @@ img {
   color: var(--color-write);
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
   padding: 40px 32px 164px 32px;
   background-color: var(--color-primary-brand);
 
-  transition: transform var(--transition-time-function);
+  transition: transform 250ms ease-in;
   transform: translate(0, 100%);
 }
 
